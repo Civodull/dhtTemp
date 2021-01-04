@@ -1,0 +1,410 @@
+body {
+    background-color: #34495e;
+    position: relative;
+    width: auto;
+    height: 912px;
+    background: #FFFFFF;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    background: url(/images/ensoleillementMeteo.png) no-repeat center fixed;
+    -webkit-background-size: cover;
+    /* pour anciens Chrome et Safari */
+    background-size: cover;
+    /* version standardisée */
+}
+
+h1 {
+    text-align: center;
+    text-decoration: solid;
+    color: rgb(170, 98, 98);
+}
+
+#container {
+    background-color: rgb(255, 255, 255);
+    border: 2px;
+    /**/
+    display: flex;
+    flex-flow: row wrap;
+    height: auto;
+}
+
+.bloc {
+    background-color: rgb(206, 228, 225);
+    color: rgb(0, 0, 0);
+    width: 50%;
+    /*margin-top: 6px;*/
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: solid;
+    color: rgb(124, 106, 106);
+}
+
+h3,
+h4 {
+    text-align: left;
+    text-decoration: solid;
+    color: rgb(20, 19, 19);
+    margin: 25px;
+}
+
+.styled {
+    transition-duration: 0.4s;
+    border-radius: 50px;
+    opacity: 0.6;
+    cursor: pointer;
+    background-color: #0a5e0d;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 25px;
+}
+
+.styled:hover {
+    background-color: #000000;
+    /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.b2:hover {
+    background-color: #d13d3d;
+    /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#img {
+    widows: 60px;
+    height: 60px;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#temp {
+    widows: 120px;
+    height: 120px;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+.tmp {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+.saison {
+    padding: 30px 0px 10px 0px;
+    margin: 50px 0px 10px 0px;
+}
+
+
+/*DEUX*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #292C2F;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    padding: 20px 10px;
+    position: relative;
+    color: white;
+    font-size: 38pt;
+    text-align: center;
+    line-height: 100px;
+    box-sizing: border-box;
+    text-align: left;
+    font: bold 16px sans-serif;
+    display: fixed;
+}
+
+.header h1 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.header .active {
+    color: white;
+    display: inline-block;
+}
+
+.header-right {
+    widows: 120px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+    .header-right {
+        float: none;
+    }
+}
+
+.rectangle1 {
+    position: absolute;
+    width: 619px;
+    left: 0px;
+    /* background: #BEC0DA; */
+}
+
+.rectangle2 {
+    position: absolute;
+    width: 632px;
+    left: 650px;
+}
+
+#date_heure {
+    text-align: center;
+}
+
+
+/*DEFILEMENT DU TEXT */
+
+#date_heure {
+    border: 1px ridge grey;
+    height: 1em;
+    width: 200px;
+    /*mini=moitié longueur du texte*/
+    overflow: hidden;
+    position: relative;
+}
+
+#date_heure span {
+    width: 200%;
+    position: absolute;
+    -webkit-animation: date_heure 8s linear infinite;
+    -moz-animation: date_heure 8s linear infinite;
+    -ms-animation: date_heure 8s linear infinite;
+    -o-animation: date_heure 8s linear infinite;
+    animation: date_heure 8s linear infinite;
+}
+
+@-webkit-keyframes date_heure {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@-moz-keyframes date_heure {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes date_heure {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+
+/*ici css footer*/
+
+.main {
+    max-height: 550px;
+    background-color: #292c2f;
+    color: white;
+    font-size: 38pt;
+    text-align: center;
+    line-height: 550px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-distributed {
+    background-color: #292c2f;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+.footer-distributed h3 {
+    color: #ffffff;
+    font: normal 36px 'Cookie', cursive;
+    margin: 0;
+}
+
+.footer-distributed h3 span {
+    color: #5383d3;
+}
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+    color: #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+    color: #5383d3;
+    text-decoration: none;
+    ;
+}
+
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 880px) {
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+    .main {
+        line-height: normal;
+        font-size: auto;
+    }
+}

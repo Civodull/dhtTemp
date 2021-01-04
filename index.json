@@ -1,0 +1,6 @@
+[
+    { "id": 1, "region": "Dakar", "temperature": 25, "humidite": 123, "position": { "altitude": 12342, "longitude": 32457 } },
+    { "id": 2, "region": "Thies", "temperature": 30, "humidite": 110, "position": { "altitude": 47783, "longitude": 88435 } },
+    { "id": 3, "region": "Kaolack", "temperature": 40, "humidite": 10, "position": { "altitude": 55884, "longitude": 87996 } },
+    { "id": 4, "region": "Saint-Louis", "temperature": 25, "humidite": 20, "position": { "altitude": 43955, "longitude": 78897 } }
+]

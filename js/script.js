@@ -1,4 +1,4 @@
-function buttonOn() {
+/*function buttonOn() {
     if (confirm('CONFIRMEZ-VOUS D ACTIVER LA VANE ?')) {
         // window.open('page.html', '', '');
         document.getElementById('etat').src = 'im5';
@@ -62,7 +62,7 @@ function etatButton(valeurRecu) {
     //etatImage ne peut pas afficher l'image sur la pasge html pour le faire 
     //il faut rajouter la balise img et recuperer son id
     document.getElementById('img').src = etatImage;
-}
+}*/
 var socket = io();
 socket.on('temp', function(data) {
     console.log(data);
@@ -81,6 +81,7 @@ socket.on('temp', function(data) {
         document.getElementById('rectangle2').innerHTML = '<img src="/im2" alt="Il fait chaud" style="width:640px; height:544px; float:left;">';
     }
 });
+
 
 function date_heure(id) {
     date = new Date;

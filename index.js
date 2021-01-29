@@ -37,7 +37,7 @@ server.listen(3000, function() {
 });
 var Serialport = require('serialport');
 var Readline = Serialport.parsers.Readline;
-var port = new Serialport('/dev/ttyUSB0', {
+var port = new Serialport('/dev/ttyACM0', {
     baudRate: 9600
 });
 var parser = port.pipe(new Readline({ delimiter: '\r\n' }));

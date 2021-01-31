@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-">
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Titre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="file" name="uploadedFiles" />
+                </div>
+                <button type="submit" class="btn btn-success">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

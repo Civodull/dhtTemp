@@ -1,5 +1,5 @@
 body {
-    background-color: #34495e;
+    background-color: #3086db;
     position: relative;
     width: auto;
     height: 912px;
@@ -7,9 +7,10 @@ body {
 }
 
 html {
+    background-color: rgb(216, 119, 119);
     margin: 0;
     padding: 0;
-    background: url(/images/ensoleillementMeteo.png) no-repeat center fixed;
+    background: url(../images/10.jpg) no-repeat center fixed;
     -webkit-background-size: cover;
     /* pour anciens Chrome et Safari */
     background-size: cover;
@@ -85,12 +86,13 @@ h4 {
 }
 
 #img {
-    widows: 60px;
-    height: 60px;
+    widows: 120px;
+    height: 120px;
     align-items: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 6em;
 }
 
 #temp {
@@ -109,9 +111,13 @@ h4 {
     width: 6em;
 }
 
-.saison {
-    padding: 30px 0px 10px 0px;
-    margin: 50px 0px 10px 0px;
+#saison {
+    align-content: bottom;
+    align-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em;
 }
 
 
@@ -408,3 +414,51 @@ footer {
         font-size: auto;
     }
 }
+
+
+/*Le css pour l'ui*/
+
+body {
+    background-color: rgb(250, 232, 232);
+    font-size: 26px;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+header,
+footer {
+    background-color: ghostwhite;
+    padding: 5px;
+}
+
+main {
+    background-color: cornsilk;
+    padding: 5px;
+}
+
+.layout-sidebar {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 2fr 1fr;
+}
+
+#moy {
+    text-align: center;
+    font-size: 25px;
+    width: 58px;
+    height: 58px;
+}
+
+#tempRell {
+    text-align: center;
+    font-size: 20px;
+    width: 58px;
+    height: 58px;
+}
+
+#tempAct {}

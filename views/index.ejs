@@ -15,8 +15,7 @@
 <body>
     <h1><strong>Etat des vanes et situation m&eacute;t&eacute;ologique</strong></h1>
     <div id="container">
-        <% donnee.map(function(valeur, index){ %>
-            <div class="bloc">
+          <div class="bloc">
                 <h2 style="text-align:center"> <span id="region1"> </span></h2>
                 <div class="gauche">
                     <img src="im4" alt="image meteo" class="onOff" id="etat">
@@ -24,13 +23,13 @@
                     <h3> Temperature :
                         <span id="zone1Tem"> </span> &deg;C </h3>
                     <h3> Humidité :
-                        <span id="zone1Hum"><%= donnee[index].humidite %> </span> g/m3 </h3>
+                        <span id="zone1Hum"> </span> g/m3 </h3>
                     <div class="position">
                         <h2 style="text-align:left; margin:24px; color:rgb(241, 104, 218)"><u><strong>Position</strong></u></h2>
                         <h4> Altitude :
-                            <span id="zone"><%= donnee[index].position.altitude %> </span> m </h4>
+                            <span id="zone"> </span> m </h4>
                         <h4> Longitude :
-                            <span id="zone1Hu"><%= donnee[index].position.longitude %> </span> m </h4>
+                            <span id="zone1Hu"> </span> m </h4>
                     </div>
                     <button onClick="buttonOn()" class="styled b2" type="button">
                     Activer la vane
@@ -40,7 +39,7 @@
                 </button>
                 </div>
             </div>
-            <% }) %>
+           
     </div>
 <script src="/socket.io/socket.io.js" charset="utf-8"></script>
 <script src="js"></script>
@@ -65,63 +64,62 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
 </head>
 
 <body>
-
     <div class="header">
         <span><h1>SITUATION M&Eacute;T&Eacute;OROLOGIQUE </h1></span>
     </div>
     <div id="container">
-
-        <div class="bloc">
-
-            <table border="0" cellspacing="0" cellpadding="2">
-                <tr>
-                    <td valign="top">
-                        <br/>
-                        <span class="tmp">
-                        <h3>Date: </h3>
-                        </span></td>
-                    <td>
-                        <!--Balise marquee-->
-                        <h5> <span id="date_heure"></span> </h5>
-                    </td>
+        <table class="table" border="0">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Heures</th>
+                    <th scope="col">08h00</th>
+                    <th scope="col">12h00</th>
+                    <th scope="col">19h00</th>
                 </tr>
-                <tr>
-                    <td valign="top"> <span class="tmp"><h3 >Temp&eacute;rature :</h3>
+            </thead>
+            <tbody>
+                <tr class="table-danger">
+                    <th scope="row" class="table-dark">Temp&eacute;rature</th>
 
-                    </span></td>
-                    <td>
-                        <h1> <span id="temp"><span id="zone1Tem"> </span> &deg;C
-                            </span>
-                        </h1>
-                    </td>
+                    <td><span id="zone1Tem"></span>&deg;C</td>
+
+                    <td><span id="zone1Tem"></span>12&deg;C</td>
+                    <td><span id="zone1Tem"></span>22&deg;C</td>
                 </tr>
-
-            </table>
-            <br/>
-            <img src="/imLogo" alt="Temoin temperature" id="img" title="Indique le temps qu'il fait" />
-            <br/>
-            <br/>
-            <br/>
-            <span class="saison">
-                <h2 >&Eacute;  T  &Eacute; </h2>
-            </span>
-        </div>
-        <div class="bloc">
-            <img src="" alt="image meteo" id="rectangle2">
-            <span id="monimage"></span>
-        </div>
+                <tr class="table-danger">
+                    <th scope="row" class="table-dark">Humidit&eacute;</th>
+                    <td><span id="zone1Hum"></span>%</td>
+                    <td><span id="zone1Hum"></span>32%</td>
+                    <td><span id="zone1Hum"></span>54%</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <table class="table" border="0">
+            <tr class="table-primary">
+                <td class="table-dark" id="moy" colspan="4">Moyenne</td>
+            </tr>
+            <tr class="table-danger">
+                <td></td>
+                <td align="center">12&deg;C</td>
+                <td align="center">18 %</td>
+                <td></td>
+            </tr>
+        </table>
     </div>
+    <span id="tempRell"><p>Temp&eacute;rature et Humidit&eacute; Actuelle</p></span>
+    <span><p>Temperature : </p><span id="tempAct"></span></span>
+    <span><p> Humidit&eacute; : </p><span id="HumAct"></span></span>
+    <span id="date"><p></p></span>
     <script src="/socket.io/socket.io.js" charset="utf-8"></script>
-    <script src="js"></script>
-    <script type="text/javascript">
-        window.onload = date_heure('date_heure');
-    </script>
+    <script src="js" charset="utf-8"></script>
+
     <!-- Site footer -->
-    <footer class="footer-distributed">
+    <!-- <footer class="footer-distributed">
 
         <div class="footer-left">
             <h3>LesCons<span>Conscients</span></h3>
@@ -133,7 +131,6 @@
                 <a href="#">Faq</a> ·
                 <a href="#">Contact</a>
             </p>
-
             <p class="footer-company-name">LesConsConscients &copy; 2020</p>
         </div>
 
@@ -153,11 +150,8 @@
                 <i class="fa fa-envelope"></i>
                 <p><a href="mailto:contact@lesconconscients.com">contact@lesconconscients.sn</a></p>
             </div>
-
         </div>
-
         <div class="footer-right">
-
             <p class="footer-company-about">
                 <span>A propos de nous</span> La plateforme LesConsConscients est une plateforme qui offre des formations d&eacute;di&eacute;es aux bidouilleurs en &eacute;lectionique &amp; pour le developpement d'applications embarqu&eacute;s.
             </p>
@@ -169,7 +163,7 @@
                 <a href="#"><i class="fa fa-youtube"></i></a>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
 

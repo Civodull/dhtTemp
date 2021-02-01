@@ -90,38 +90,43 @@ socket.on('temp', function(data) {
 
     //fonction pour changer d'images en fonction de la temperature
     //document.getElementById('img').src = 'im1';
-    if (temperature <= 26) {
-        document.getElementById('img').innerHTML = '<img src="/im1" alt="Ambient" title="Temperature < = 26 " style="width:40px; height:44px;">';
-    } else {
-        document.getElementById('img').innerHTML = '<img src="/imLogo" alt="Chaud" title="Temperature >= 26 " style="width:40px; height:44px; border-radius: 32px;">';
-    }
-    if (temperature <= 26) {
-        document.getElementById('rectangle2').innerHTML = '<img src="/im" alt="Il fait beau" style="width:auto; height:auto; float:left;">';
-    } else {
-        document.getElementById('rectangle2').innerHTML = '<img src="/im2" alt="Il fait chaud" style="width:auto; height:auto; float:left;">';
-    }
-    date = new Date();
-    mois = date.getMonth();
-    if (mois == (mois + 1) || mois == (mois + 2) || mois == (mois + 6) || mois == (mois + 8) || mois == (mois + 12)) {
-        document.getElementById('saisonn').innerHTML = "E T E";
-    }
-    if (mois == (mois + 3) || mois == (mois + 4) || mois == (mois + 5) || mois == (mois + 7) || mois == (mois + 9) || mois == (mois + 10) || mois == (mois + 11)) {
-        document.getElementById('saisonn').innerHTML = "H I V E R";
-    }
-});
+    //     if (temperature <= 26) {
+    //         document.getElementById('img').innerHTML = '<img src="/im1" alt="Ambient" title="Temperature < = 26 " style="width:40px; height:44px;">';
+    //     } else {
+    //         document.getElementById('img').innerHTML = '<img src="/imLogo" alt="Chaud" title="Temperature >= 26 " style="width:40px; height:44px; border-radius: 32px;">';
+    //     }
+    //     if (temperature <= 26) {
+    //         document.getElementById('rectangle2').innerHTML = '<img src="/im" alt="Il fait beau" style="width:auto; height:auto; float:left;">';
+    //     } else {
+    //         document.getElementById('rectangle2').innerHTML = '<img src="/im2" alt="Il fait chaud" style="width:auto; height:auto; float:left;">';
+    //     }
+    //     date = new Date();
+    //     mois = date.getMonth();
+    //     if (mois == (mois + 1) || mois == (mois + 2) || mois == (mois + 6) || mois == (mois + 8) || mois == (mois + 12)) {
+    //         document.getElementById('saisonn').innerHTML = "E T E";
+    //     }
+    //     if (mois == (mois + 3) || mois == (mois + 4) || mois == (mois + 5) || mois == (mois + 7) || mois == (mois + 9) || mois == (mois + 10) || mois == (mois + 11)) {
+    //         document.getElementById('saisonn').innerHTML = "H I V E R";
+    //     }
+    // });
 
-function Heure() {
-    jours = new Array("dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi");
-    mois = new Array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
-    d = new Date;
-    if (d.getHours() < 10) { h = "0" + d.getHours() } else { h = d.getHours() }
-    if (d.getMinutes() < 10) { min = "0" + d.getMinutes() } else { min = d.getMinutes() }
-    if (d.getSeconds() < 10) { sec = "0" + d.getSeconds() } else { sec = d.getSeconds() }
-    j = jours[d.getDay()];
-    if (d.getDate() < 10) { n = "0" + d.getDate() } else { n = d.getDate() }
-    m = mois[d.getMonth()];
-    a = d.getYear();
-    txt = "Nous sommes le " + j + " " + n + " " + m + " " + a + ", il est : " + h + ":" + min + ":" + sec;
-    Calk.innerHTML = txt;
-    setTimeout("Heure()", 1000);
-}
+    function Heure() {
+        jours = new Array("dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi");
+        mois = new Array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+        d = new Date;
+        if (d.getHours() < 10) { h = "0" + d.getHours() } else { h = d.getHours() }
+        if (d.getMinutes() < 10) { min = "0" + d.getMinutes() } else { min = d.getMinutes() }
+        if (d.getSeconds() < 10) { sec = "0" + d.getSeconds() } else { sec = d.getSeconds() }
+        j = jours[d.getDay()];
+        if (d.getDate() < 10) { n = "0" + d.getDate() } else { n = d.getDate() }
+        m = mois[d.getMonth()];
+        a = d.getYear();
+        txt = "Nous sommes le " + j + " " + n + " " + m + " " + a + ", il est : " + h + ":" + min + ":" + sec;
+        Calk.innerHTML = txt;
+        setTimeout("Heure()", 1000);
+    }
+    socket.on('MoyTem', function(data) {
+        console.log("La moyenne est :" + data);
+        document.getElementById('moyeTem').innerHTML = "La moyenne est :" + data;
+    });
+});

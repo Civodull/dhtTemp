@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6016b8581181342ad0ff64d9"
+  },
+  "Temperature": 23,
+  "Humidity": 16,
+  "Date": "31/01/2021",
+  "Heure": "08:00:00"
+},{
+  "_id": {
+    "$oid": "6016b97dce5f2f2baf675ee7"
+  },
+  "Temperature": 24,
+  "Humidity": 18,
+  "Date": "31/01/2021",
+  "Heure": "12:00:00"
+},{
+  "_id": {
+    "$oid": "60172a4d97948f5dfed7633b"
+  },
+  "Temperature": 27,
+  "Humidity": 32,
+  "Date": "31/01/2021",
+  "Heure": "19:00:00"
+}]

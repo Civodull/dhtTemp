@@ -71,6 +71,7 @@
         <span><h1>SITUATION M&Eacute;T&Eacute;OROLOGIQUE </h1></span>
     </div>
     <div id="container">
+
         <table class="table" border="0">
             <thead>
                 <tr class="table-primary">
@@ -81,20 +82,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-danger">
-                    <th scope="row" class="table-dark">Temp&eacute;rature</th>
+                <% monObjet.forEach(donnees=>{ %>
+                    <tr class="table-danger">
+                        <th scope="row" class="table-dark">Temp&eacute;rature</th>
 
-                    <td><span id="zone1Tem"></span>&deg;C</td>
+                        <td><span id="zone1Tm"></span>
+                            <%= donnees.TempHuitHeure %> &deg;C</td>
 
-                    <td><span id="zone1Tem"></span>12&deg;C</td>
-                    <td><span id="zone1Tem"></span>22&deg;C</td>
-                </tr>
-                <tr class="table-danger">
-                    <th scope="row" class="table-dark">Humidit&eacute;</th>
-                    <td><span id="zone1Hum"></span>%</td>
-                    <td><span id="zone1Hum"></span>32%</td>
-                    <td><span id="zone1Hum"></span>54%</td>
-                </tr>
+                        <td><span id="zone1Te"></span>
+                            <%= donnees.TemperatureDouzeHeure %>&deg;C</td>
+                        <td><span id="zone1Te"></span>
+                            <%= donnees.TemperatureDixNeufHeure %>&deg;C</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row" class="table-dark">Humidit&eacute;</th>
+                        <td><span id="zone1Hu"></span>
+                            <%= donnees.HumiditeHuitHeure %>%</td>
+                        <td><span id="zone1H"></span>
+                            <%= donnees.HumiditeDouzeHeure %>%</td>
+                        <td><span id="zone1Hm"></span>
+                            <%= donnees.HumiditeDixNeufHeure %>%</td>
+                    </tr>
             </tbody>
         </table>
         <br />
@@ -105,9 +113,12 @@
             </tr>
             <tr class="table-danger">
                 <td></td>
-                <td align="center">12&deg;C</td>
-                <td align="center">18 %</td>
+                <td align="center"><span id="moyeTem"></span>
+                    <%= donnees.MoyTemperature %> &deg;C</td>
+                <td align="center">
+                    <%= donnees.MoyHumidite %> %</td>
                 <td></td>
+                <% }); %>
             </tr>
         </table>
     </div>

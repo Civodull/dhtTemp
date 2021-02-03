@@ -18,7 +18,7 @@
   "_id": {
     "$oid": "60172a4d97948f5dfed7633b"
   },
-  "Temperature": 27,
+  "Temperature": 28,
   "Humidity": 32,
   "Date": "31/01/2021",
   "Heure": "19:00:00"

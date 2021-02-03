@@ -67,115 +67,60 @@
 </head>
 
 <body>
-    <div class="header">
-        <span><h1>SITUATION M&Eacute;T&Eacute;OROLOGIQUE </h1></span>
-    </div>
-    <div id="container">
-
-        <table class="table" border="0">
-            <thead>
-                <tr class="table-primary">
-                    <th scope="col">Heures</th>
-                    <th scope="col">08h00</th>
-                    <th scope="col">12h00</th>
-                    <th scope="col">19h00</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% monObjet.forEach(donnees=>{ %>
-                    <tr class="table-danger">
-                        <th scope="row" class="table-dark">Temp&eacute;rature</th>
-
-                        <td><span id="zone1Tm"></span>
-                            <%= donnees.TempHuitHeure %> &deg;C</td>
-
-                        <td><span id="zone1Te"></span>
-                            <%= donnees.TemperatureDouzeHeure %>&deg;C</td>
-                        <td><span id="zone1Te"></span>
-                            <%= donnees.TemperatureDixNeufHeure %>&deg;C</td>
+    <header>
+        <div id="container">
+            <table class="table" border="0">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Heures</th>
+                        <th scope="col">08h00</th>
+                        <th scope="col">12h00</th>
+                        <th scope="col">19h00</th>
                     </tr>
-                    <tr class="table-danger">
-                        <th scope="row" class="table-dark">Humidit&eacute;</th>
-                        <td><span id="zone1Hu"></span>
-                            <%= donnees.HumiditeHuitHeure %>%</td>
-                        <td><span id="zone1H"></span>
-                            <%= donnees.HumiditeDouzeHeure %>%</td>
-                        <td><span id="zone1Hm"></span>
-                            <%= donnees.HumiditeDixNeufHeure %>%</td>
+                </thead>
+                <tbody>
+                    <% monObjet.forEach(donnees=>{ %>
+                        <tr class="">
+                            <th scope="row" class="table-danger">Temp&eacute;rature</th>
+
+                            <td>
+                                <%= donnees.TempHuitHeure %> &deg;C</td>
+
+                            <td>
+                                <%= donnees.TemperatureDouzeHeure %>&deg;C</td>
+                            <td>
+                                <%= donnees.TemperatureDixNeufHeure %>&deg;C</td>
+                        </tr>
+                        <tr class="">
+                            <th scope="row" class="table-danger">Humidit&eacute;</th>
+                            <td>
+                                <%= donnees.HumiditeHuitHeure %>%</td>
+                            <td>
+                                <%= donnees.HumiditeDouzeHeure %>%</td>
+                            <td>
+                                <%= donnees.HumiditeDixNeufHeure %>%</td>
+                        </tr>
+                </tbody>
+                <table class="table" border="0">
+                    <tr class="">
+                        <td class="table-danger" id="moy" colspan="4">Temp&eacute;rature et Humidit&eacute; Moyenne</td>
                     </tr>
-            </tbody>
-        </table>
-        <br />
-        <br />
-        <table class="table" border="0">
-            <tr class="table-primary">
-                <td class="table-dark" id="moy" colspan="4">Moyenne</td>
-            </tr>
-            <tr class="table-danger">
-                <td></td>
-                <td align="center"><span id="moyeTem"></span>
-                    <%= donnees.MoyTemperature %> &deg;C</td>
-                <td align="center">
-                    <%= donnees.MoyHumidite %> %</td>
-                <td></td>
-                <% }); %>
-            </tr>
-        </table>
-    </div>
-    <span id="tempRell"><p>Temp&eacute;rature et Humidit&eacute; Actuelle</p></span>
-    <span><p>Temperature : </p><span id="tempAct"></span></span>
-    <span><p> Humidit&eacute; : </p><span id="HumAct"></span></span>
-    <span id="date"><p></p></span>
+                    <tr class="">
+                        <td></td>
+                        <td align="center">
+                            <%= donnees.MoyTemperature %> &deg;C</td>
+                        <td align="center">
+                            <%= donnees.MoyHumidite %> %</td>
+
+                        <% }); %>
+                    </tr>
+                </table>
+            </table>
+
+        </div>
+    </header>
     <script src="/socket.io/socket.io.js" charset="utf-8"></script>
     <script src="js" charset="utf-8"></script>
-
-    <!-- Site footer -->
-    <!-- <footer class="footer-distributed">
-
-        <div class="footer-left">
-            <h3>LesCons<span>Conscients</span></h3>
-            <p class="footer-links">
-                <a href="#">Home</a> ·
-                <a href="#">Blog</a> ·
-                <a href="#">Pricing</a> ·
-                <a href="#">About</a> ·
-                <a href="#">Faq</a> ·
-                <a href="#">Contact</a>
-            </p>
-            <p class="footer-company-name">LesConsConscients &copy; 2020</p>
-        </div>
-
-        <div class="footer-center">
-
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>Rue 73 VDN</span> Mermoze, Dakar</p>
-            </div>
-
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+221 33 823 87 87</p>
-            </div>
-
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:contact@lesconconscients.com">contact@lesconconscients.sn</a></p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <p class="footer-company-about">
-                <span>A propos de nous</span> La plateforme LesConsConscients est une plateforme qui offre des formations d&eacute;di&eacute;es aux bidouilleurs en &eacute;lectionique &amp; pour le developpement d'applications embarqu&eacute;s.
-            </p>
-            <div class="footer-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-github"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer> -->
-
 </body>
 
 </html>

@@ -32,6 +32,10 @@ app.get('/css', function(req, res) {
 app.get('/js', function(req, res) {
     res.sendFile(__dirname + '/js/script.js');
 });
+app.get('/header', function(req, res) {
+    res.sendFile(__dirname + '/views/partials/header.ejs');
+});
+app.use(express.static("public"));
 // app.get('/im', function(req, res) {
 //     res.sendFile(__dirname + '/images/meteo.gif');
 // });

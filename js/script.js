@@ -69,24 +69,35 @@ socket.on('temp', function(data) {
     console.log(data);
     var temperature = data.slice(0, 2);
     var humidite = data.slice(5, 7);
-    document.getElementById('tempAct').innerHTML = `${temperature}`;
-    document.getElementById('HumAct').innerHTML = `${humidite}`;
+    document.getElementById('tempAct').innerHTML = `${temperature}` + "&deg;C";
+    document.getElementById('HumAct').innerHTML = `${humidite}` + "%";
 
-    // var datHeure = new Date();
-    // var heur = datHeure.getHours();
-    // var min = datHeure.getMinutes();
+    function changeBg() {
+        var image = [
+            'url("/images/4.jpg")',
+            // 'url("/images/4.jpg")'
+        ];
+        var section = document.querySelector('.jumbotron');
+        var bg;
+        bg = image[Math.floor(Math.random() * image.length)];
+        section.style.backgroundImage = bg;
+    }
 
-    // var numMois = datHeure.getMonth() + 1;
-    // if (numMois < 10) {
-    //     numMois = '0' + numMois;
-    // }
-    // var jour = datHeure.getDay(); //le numero du jour de la semaine
-    // var seco = datHeure.getSeconds(); //seconde
-    // var laDate = datHeure.getFullYear(); // me renvoie en chiffre l'annee
-    // var mois = datHeure.getDate(); //renvoie le jour du mois 
-    // var data = datHeure.getMonth(); //renvoie le jour du mois
-    // var heureEtDate = mois + '/' + numMois + '/' + laDate;
-    // document.getElementById('date').innerHTML = heureEtDate;
+    function changeBgDeux() {
+        var image = [
+            'url("/images/10.jpg")',
+            // 'url("/images/4.jpg")'
+        ];
+        var section = document.querySelector('.jumbotron');
+        var bg;
+        bg = image[Math.floor(Math.random() * image.length)];
+        section.style.backgroundImage = bg;
+    }
+    if (humidite >= 35 && humidite < 40) {
+        setInterval(changeBg, 10000);
+    } else if (humidite >= 40 && humidite <= 70) {
+        setInterval(changeBgDeux, 10000);
+    }
 
     //fonction pour changer d'images en fonction de la temperature
     //document.getElementById('img').src = 'im1';
@@ -110,23 +121,4 @@ socket.on('temp', function(data) {
     //     }
     // });
 
-    function Heure() {
-        jours = new Array("dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi");
-        mois = new Array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
-        d = new Date;
-        if (d.getHours() < 10) { h = "0" + d.getHours() } else { h = d.getHours() }
-        if (d.getMinutes() < 10) { min = "0" + d.getMinutes() } else { min = d.getMinutes() }
-        if (d.getSeconds() < 10) { sec = "0" + d.getSeconds() } else { sec = d.getSeconds() }
-        j = jours[d.getDay()];
-        if (d.getDate() < 10) { n = "0" + d.getDate() } else { n = d.getDate() }
-        m = mois[d.getMonth()];
-        a = d.getYear();
-        txt = "Nous sommes le " + j + " " + n + " " + m + " " + a + ", il est : " + h + ":" + min + ":" + sec;
-        Calk.innerHTML = txt;
-        setTimeout("Heure()", 1000);
-    }
-    socket.on('MoyTem', function(data) {
-        console.log("La moyenne est :" + data);
-        document.getElementById('moyeTem').innerHTML = "La moyenne est :" + data;
-    });
 });
